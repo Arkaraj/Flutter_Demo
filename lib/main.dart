@@ -1,69 +1,37 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+// Widget nesting stuff, default material UI font and themes
+void main() => runApp(MaterialApp(
+  home: memes(),
+));
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo App'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // Fields in a Widget subclass are always marked "final".
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-    print("pressed");
-  }
-
+// Stateless Widget - State of the widget will not change overtime
+class memes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+    appBar: AppBar(
+      title: Text('Flutter Demo'),
+      centerTitle: true,
+      backgroundColor: Colors.blue[400],
+    ),
+    body: Center(
+      child: Text(
+        'Meme API App',
+        style: TextStyle(
+          fontSize: 20,
+          fontFamily: 'Karla',
+          fontWeight: FontWeight.bold,
+          letterSpacing: 2,
+          color: Colors.grey[600],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.bolt),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  } 
+    ),
+    floatingActionButton: FloatingActionButton(
+      child: Icon(Icons.bolt), // Text("Click me")
+      onPressed: () => print("clicked"),
+      backgroundColor: Colors.blue[400],
+    ),
+  );
+  }
 }
