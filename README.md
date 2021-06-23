@@ -4,7 +4,7 @@ A new Flutter project for practising flutter framework and dart lang.
 
 ## AIM
 
-To make meme app, where user can search for memes
+To make meme gifs app, where user can search for memes
 
 - work with some sort of meme api
 
